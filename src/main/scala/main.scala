@@ -24,16 +24,10 @@ object main {
 
     os.makeDir(data)
     os.makeDir(data / "a")
-    //os.makeDir(data / "b")
-    //os.write(data / "a" / "f", "f")
-    //os.write(data / "b" / "g", "g")
-
     //println("giving the file system time to settle")
     //Thread.sleep(5000)
-
-    //println("watching")
     os.watch.watch(Seq(data), printer, logger)
-
+    Thread.sleep(5000)
     //println("removing")
     os.remove.all(data)
 

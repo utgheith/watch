@@ -22,6 +22,7 @@ object main {
 
     os.remove.all(data)
     os.makeDir.all(data / "a")
+    os.makeDir.all(data / "b")
 
     os.watch.watch(Seq(data), printer, logger)
 

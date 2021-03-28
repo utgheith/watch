@@ -12,6 +12,11 @@ object main {
     }
   }
 
+  def printer(paths: Set[os.Path]): Unit = {
+    println("event")
+    paths.foreach { p => println(s"  $p")}
+  }
+
   def main(args: Array[String]): Unit = {
     val data = os.pwd / "data"
 
@@ -27,7 +32,7 @@ object main {
     //Thread.sleep(5000)
 
     //println("watching")
-    os.watch.watch(Seq(data), println, logger)
+    os.watch.watch(Seq(data), printer, logger)
 
     //println("removing")
     os.remove.all(data)

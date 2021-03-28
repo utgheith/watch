@@ -2,7 +2,7 @@ object main {
 
   val LOG = false
 
-  def logger(what: String, data: Any) = {
+  def logger(what: String, data: Any) : Unit = {
     if (LOG) {
       val d = data match {
         case a: Array[_] => a.toList.toString
@@ -14,21 +14,17 @@ object main {
 
   def printer(paths: Set[os.Path]): Unit = {
     println("event")
-    paths.foreach { p => println(s"  $p")}
+    paths.map(_.relativeTo(os.pwd)).foreach { p => println(s"  $p")}
   }
 
   def main(args: Array[String]): Unit = {
     val data = os.pwd / "data"
 
     os.remove.all(data)
+    os.makeDir.all(data / "a")
 
-    os.makeDir(data)
-    os.makeDir(data / "a")
-    //println("giving the file system time to settle")
-    //Thread.sleep(5000)
     os.watch.watch(Seq(data), printer, logger)
-    Thread.sleep(5000)
-    //println("removing")
+
     os.remove.all(data)
 
     Thread.sleep(5000)

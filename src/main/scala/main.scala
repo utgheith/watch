@@ -37,7 +37,7 @@ object main {
     //println("removing")
     os.remove.all(data)
 
-    Thread.sleep(1000000)
+    Thread.sleep(5000)
   }
 
 }

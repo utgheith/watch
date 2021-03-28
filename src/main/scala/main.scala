@@ -24,9 +24,9 @@ object main {
 
     os.makeDir(data)
     os.makeDir(data / "a")
-    os.makeDir(data / "b")
-    os.write(data / "a" / "f", "f")
-    os.write(data / "b" / "g", "g")
+    //os.makeDir(data / "b")
+    //os.write(data / "a" / "f", "f")
+    //os.write(data / "b" / "g", "g")
 
     //println("giving the file system time to settle")
     //Thread.sleep(5000)
